@@ -1,0 +1,38 @@
+.wrap { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.table td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.selected td { background: #eff6ff; }
+.selected td:first-child { box-shadow: inset 3px 0 0 var(--primary); }
+.pick {
+  font: inherit;
+  background: none;
+  border: 0;
+  padding: 0.1rem 0.3rem;
+  color: var(--primary);
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: underline;
+}
+.pick:hover { background: var(--bg); }
+.pick:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.sub { display: block; font-size: 0.75rem; color: var(--muted); }
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
