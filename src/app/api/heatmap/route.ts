@@ -27,7 +27,7 @@ export async function GET(req: NextRequest) {
       col.countDocuments(filter),
       col
         .find(filter, {
-          projection: { x: 1, y: 1, pageWidth: 1, pageHeight: 1, viewportWidth: 1, viewportHeight: 1 },
+          projection: { x: 1, y: 1, pageWidth: 1, pageHeight: 1, viewportWidth: 1, viewportHeight: 1, target: 1 },
         })
         .sort({ timestamp: -1 })
         .limit(10000)
@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
       const pageWidth = d.pageWidth ?? d.viewportWidth;
       const pageHeight = d.pageHeight ?? d.viewportHeight;
       if (!pageWidth || !pageHeight) continue;
-      points.push({ x: d.x, y: d.y, pageWidth, pageHeight });
+      points.push({ x: d.x, y: d.y, pageWidth, pageHeight, target: d.target });
     }
     const body: HeatmapResponse = { url, total, points };
     return json(body, 200, HEADERS);
